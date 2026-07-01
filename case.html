@@ -1,0 +1,859 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>불사자의 죽음 | 사건의 전말</title>
+  <meta name="description" content="불사자의 죽음 — 사건의 전말과 주요 정보">
+  <style>
+    :root {
+      --bg: #171717;
+      --panel: #202020;
+      --panel-2: #262626;
+      --line: #4b4b4b;
+      --text: #f3f3f3;
+      --muted: #b9b9b9;
+      --accent: #9bb8d7;
+      --accent-dark: #263543;
+      --danger: #c98a8a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      font-family: "Pretendard", "SUIT", "Noto Sans KR", "Malgun Gothic", sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    button,
+    a {
+      color: inherit;
+      font: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .app-shell {
+      width: min(1040px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 76px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      padding: 0;
+      border: 0;
+      color: var(--text);
+      background: transparent;
+      text-align: left;
+    }
+
+    .brand-mark {
+      width: 11px;
+      height: 31px;
+      background: var(--accent);
+    }
+
+    .brand-label {
+      display: grid;
+      gap: 3px;
+    }
+
+    .brand-label span {
+      color: var(--accent);
+      font: 700 11px/1 ui-monospace, "SFMono-Regular", Consolas, monospace;
+      letter-spacing: .12em;
+    }
+
+    .brand-label strong {
+      font-size: 15px;
+      letter-spacing: -0.04em;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 17px;
+    }
+
+    .site-nav button,
+    .site-nav a {
+      padding: 5px 0;
+      border: 0;
+      border-bottom: 1px solid transparent;
+      color: var(--muted);
+      background: transparent;
+      font-size: 13px;
+    }
+
+    .site-nav button:hover,
+    .site-nav button.is-current,
+    .site-nav a:hover,
+    .site-nav a.is-current {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    main {
+      padding: 46px 0 62px;
+    }
+
+
+    .kicker {
+      margin-bottom: 15px;
+      color: var(--accent);
+      font: 700 11px/1.4 ui-monospace, "SFMono-Regular", Consolas, monospace;
+      letter-spacing: .1em;
+    }
+
+    .home-hero {
+      min-height: 390px;
+      display: flex;
+      align-items: center;
+      padding: clamp(34px, 7vw, 72px);
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .home-content {
+      max-width: 620px;
+    }
+
+    .hero-title {
+      margin: 0;
+      font-size: clamp(44px, 8vw, 76px);
+      line-height: 1.03;
+      letter-spacing: -0.08em;
+    }
+
+    .hero-copy {
+      max-width: 510px;
+      margin: 26px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.85;
+      word-break: keep-all;
+    }
+
+    .hero-status {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 25px;
+      padding: 8px 11px;
+      border: 1px solid #617487;
+      color: #d5e4f3;
+      background: var(--accent-dark);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .portal-card {
+      min-height: 202px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 26px;
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: var(--panel);
+      text-align: left;
+    }
+
+    .portal-card:hover {
+      border-color: #71808e;
+      background: var(--panel-2);
+    }
+
+    .portal-card {
+      text-decoration: none;
+    }
+
+    .portal-index {
+      color: var(--accent);
+      font: 700 11px/1 ui-monospace, "SFMono-Regular", Consolas, monospace;
+      letter-spacing: .1em;
+    }
+
+    .portal-card h2 {
+      margin: 20px 0 9px;
+      font-size: 27px;
+      letter-spacing: -0.06em;
+    }
+
+    .portal-card p {
+      max-width: 350px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
+      word-break: keep-all;
+    }
+
+    .portal-action {
+      margin-top: 22px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .page-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 22px;
+      margin-bottom: 31px;
+    }
+
+    .page-title {
+      margin: 0;
+      font-size: clamp(37px, 6vw, 57px);
+      line-height: 1.05;
+      letter-spacing: -0.08em;
+    }
+
+    .page-description {
+      max-width: 650px;
+      margin: 16px 0 0;
+      color: var(--muted);
+      line-height: 1.8;
+      word-break: keep-all;
+    }
+
+    .page-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 7px;
+    }
+
+    .page-links button,
+    .page-links a {
+      padding: 9px 11px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      background: var(--panel);
+      font-size: 13px;
+    }
+
+    .page-links button:hover,
+    .page-links a:hover {
+      border-color: #71808e;
+      color: var(--text);
+    }
+
+    .case-record {
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .case-summary {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 22px;
+      padding: 27px;
+      border-bottom: 1px solid var(--line);
+      background: #242424;
+    }
+
+    .case-summary p {
+      max-width: 710px;
+      margin: 0;
+      color: #dedede;
+      font-size: 16px;
+      line-height: 1.8;
+      word-break: keep-all;
+    }
+
+    .case-number {
+      align-self: start;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .chapter {
+      padding: clamp(27px, 5vw, 52px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .chapter:last-child {
+      border-bottom: 0;
+    }
+
+    .chapter-heading {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      align-items: start;
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+
+    .chapter-code {
+      padding-top: 7px;
+      color: var(--accent);
+      font: 700 11px/1.3 ui-monospace, "SFMono-Regular", Consolas, monospace;
+      letter-spacing: .1em;
+    }
+
+    .chapter h2 {
+      margin: 0;
+      font-size: clamp(27px, 4vw, 39px);
+      line-height: 1.05;
+      letter-spacing: -0.07em;
+    }
+
+    .chapter-subtitle {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .chapter-text {
+      max-width: 810px;
+      margin-left: 110px;
+    }
+
+    .chapter-text p {
+      margin: 0 0 17px;
+      color: #dddddd;
+      font-size: 16px;
+      line-height: 1.95;
+      word-break: keep-all;
+    }
+
+    .chapter-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .death-log {
+      display: grid;
+      gap: 9px;
+      margin: 23px 0;
+    }
+
+    .death-card {
+      display: grid;
+      grid-template-columns: 102px 1fr;
+      gap: 18px;
+      padding: 15px 16px;
+      border: 1px solid #5f4a4a;
+      background: #292222;
+    }
+
+    .death-time {
+      color: #e3a5a5;
+      font: 700 12px/1.5 ui-monospace, "SFMono-Regular", Consolas, monospace;
+      letter-spacing: .02em;
+    }
+
+    .death-card p {
+      margin: 0;
+      color: #dddddd;
+      font-size: 14px;
+      line-height: 1.75;
+      word-break: keep-all;
+    }
+
+    .question-box {
+      margin-top: 25px;
+      padding: 24px;
+      border: 1px solid #617487;
+      background: #202830;
+    }
+
+    .question-box strong {
+      display: block;
+      color: var(--accent);
+      font: 700 11px/1.35 ui-monospace, "SFMono-Regular", Consolas, monospace;
+      letter-spacing: .11em;
+    }
+
+    .question-box p {
+      margin: 11px 0 0;
+      color: var(--text);
+      font-size: clamp(17px, 2.3vw, 22px);
+      font-weight: 700;
+      line-height: 1.55;
+      letter-spacing: -0.04em;
+      word-break: keep-all;
+    }
+
+    .info-banner {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .info-banner-copy {
+      padding: clamp(30px, 5vw, 53px);
+    }
+
+    .info-banner-copy h2 {
+      margin: 0;
+      font-size: clamp(29px, 4vw, 44px);
+      line-height: 1.1;
+      letter-spacing: -0.07em;
+    }
+
+    .info-banner-copy p {
+      max-width: 520px;
+      margin: 19px 0 0;
+      color: var(--muted);
+      line-height: 1.85;
+      word-break: keep-all;
+    }
+
+    .info-banner-stat {
+      display: grid;
+      place-content: center;
+      gap: 9px;
+      min-height: 215px;
+      padding: 30px;
+      border-left: 1px solid var(--line);
+      background: #242424;
+      text-align: center;
+    }
+
+    .info-banner-stat span {
+      color: var(--accent);
+      font: 700 11px/1 ui-monospace, "SFMono-Regular", Consolas, monospace;
+      letter-spacing: .11em;
+    }
+
+    .info-banner-stat strong {
+      color: var(--text);
+      font-size: 58px;
+      line-height: 1;
+      letter-spacing: -0.09em;
+    }
+
+    .info-banner-stat small {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .profile-card {
+      min-height: 229px;
+      display: flex;
+      flex-direction: column;
+      padding: 25px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .profile-card:hover {
+      border-color: #71808e;
+      background: var(--panel-2);
+    }
+
+    .profile-order {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      color: var(--accent);
+      font: 700 11px/1 ui-monospace, "SFMono-Regular", Consolas, monospace;
+      letter-spacing: .1em;
+    }
+
+    .profile-card h3 {
+      margin: 23px 0 8px;
+      font-size: 30px;
+      line-height: 1;
+      letter-spacing: -0.07em;
+    }
+
+    .profile-meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .profile-body {
+      margin-top: auto;
+      padding-top: 20px;
+      color: #dce9f5;
+      font-weight: 700;
+      line-height: 1.55;
+      word-break: keep-all;
+    }
+
+    .profile-extra {
+      display: inline-block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .info-note {
+      margin-top: 18px;
+      padding: 21px 23px;
+      border-left: 3px solid var(--accent);
+      color: var(--muted);
+      background: #222222;
+      font-size: 14px;
+      line-height: 1.8;
+      word-break: keep-all;
+    }
+
+    .result-section {
+      margin-top: 18px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .result-section-header {
+      padding: 25px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .result-section-header h2 {
+      margin: 0;
+      font-size: 27px;
+      letter-spacing: -0.06em;
+    }
+
+    .result-section-header p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
+      word-break: keep-all;
+    }
+
+    .result-table-wrap {
+      overflow-x: auto;
+    }
+
+    .result-table {
+      width: 100%;
+      min-width: 620px;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .result-table th,
+    .result-table td {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .result-table thead th {
+      color: var(--accent);
+      background: #242424;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .result-table tbody th {
+      width: 45%;
+      color: #dddddd;
+      font-weight: 500;
+    }
+
+    .result-table td {
+      width: 27.5%;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .result-table tbody tr:last-child th,
+    .result-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .result-table td span {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .result-table td strong {
+      color: var(--accent);
+      font-size: 16px;
+    }
+
+    .footer {
+      padding: 29px 0 40px;
+      color: #858585;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    @media (max-width: 760px) {
+      .app-shell {
+        width: min(100% - 28px, 1040px);
+      }
+
+      .site-header {
+        min-height: 72px;
+      }
+
+      .site-nav {
+        gap: 11px;
+      }
+
+      .site-nav button,
+    .site-nav a {
+        font-size: 12px;
+      }
+
+      main {
+        padding-top: 31px;
+      }
+
+      .home-hero {
+        min-height: 355px;
+      }
+
+      .portal-grid,
+      .info-banner,
+      .profile-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .info-banner-stat {
+        min-height: 150px;
+        border-top: 1px solid var(--line);
+        border-left: 0;
+      }
+
+      .page-top,
+      .case-summary {
+        grid-template-columns: 1fr;
+      }
+
+      .page-links {
+        justify-content: flex-start;
+      }
+
+      .case-number {
+        text-align: left;
+      }
+
+      .chapter-heading {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .chapter-text {
+        margin-left: 0;
+      }
+
+      .death-card {
+        grid-template-columns: 1fr;
+        gap: 7px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .brand-label strong {
+        font-size: 13px;
+      }
+
+      .brand-label span {
+        font-size: 9px;
+      }
+
+      .site-nav {
+        gap: 7px;
+      }
+
+      .site-nav button,
+    .site-nav a {
+        font-size: 11px;
+      }
+
+      .portal-card,
+      .profile-card {
+        padding: 23px;
+      }
+    }
+</style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+
+      <a class="brand-button" href="index.html" aria-label="첫 화면으로 이동">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-label">
+          <span>QUARTZ HORIZON 1</span>
+          <strong>불사자의 죽음</strong>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="사이트 이동">
+        <a href="index.html">첫 화면</a>
+        <a href="case.html" class="is-current">사건의 전말</a>
+        <a href="info.html">주요 정보</a>
+      </nav>
+    
+    </header>
+
+    <main>
+      <section class="view is-active">
+
+        <div class="page-top">
+          <div>
+            <h1 class="page-title">사건의 전말</h1>
+          </div>
+          <div class="page-links">
+            <a href="index.html">첫 화면</a>
+            <a href="info.html">주요 정보 보기</a>
+          </div>
+        </div>
+
+        <article class="case-record">
+          <div class="case-summary">
+            <p>서은빈을 살려 조현준을 죽이고, 실루엣이 마지막을 마무리하는 미래. 예언자는 그 미래를 믿고 판을 만들었다. 그러나 쿼츠가 움직이기 시작한 순간, 관측된 운명은 완전한 답이 아니게 된다.</p>
+            <div class="case-number">전체 요약</div>
+          </div>
+
+          <section class="chapter">
+            <div class="chapter-heading">
+              <div class="chapter-code">CHAPTER 01</div>
+              <div>
+                <h2>중학교 때</h2>
+                <p class="chapter-subtitle">집착이 시작된 순간</p>
+              </div>
+            </div>
+            <div class="chapter-text">
+              <p>중학교 시절, 서은빈은 불꽃놀이를 보다 발을 삐끗한 자신을 데려다준 조현준과 이후 놀게 됐지만 인연으로 이어지진 못했다. 하지만 마음에 드는 거라면 나비라도 박제해서 다니는 서은빈의 성격은 ‘조현준을 아무에게도 주지 않아야겠다’라는 생각으로 변질해 버린다.</p>
+              <p>조현준과 이시현이 이전 회차에서도 사귀었기에, 예언자는 2020년 서은빈에게 “조현준과 이시현이 사귀게 될 것이다”라고 예언하며 그를 스카웃한다. 여기에 2023년 조현준이 초능력을 내려받으며 상황은 미묘하게 달라진다. 이시현 안의 이중인격, 실루엣이 움직이며 조현준에게 의도적으로 접근하고 두 사람은 만나게 된다.</p>
+            </div>
+          </section>
+
+          <section class="chapter">
+            <div class="chapter-heading">
+              <div class="chapter-code">CHAPTER 02</div>
+              <div>
+                <h2>예언자가 구성한 판</h2>
+                <p class="chapter-subtitle">예언자가 비튼 미래</p>
+              </div>
+            </div>
+            <div class="chapter-text">
+              <p>이전 회차에 초능력자가 된 조현준을 표적으로, 예언자는 죽었어야 할 운명인 서은빈을 살려 조현준을 죽이고 실루엣인 이시현으로 마무리할 계획을 세웠다. 정확히 말하면 ‘서은빈을 살리면 조현준을 죽이고, 이후 실루엣이 조현준을 마무리하는 미래’가 보였다.</p>
+              <p>그렇기에 예언자는 서은빈을 살린 뒤, 별장에서 사용처를 다 했다고 생각해 버리려 했다. 그러나 2023년 겨울, 당초 살해를 위해 데려온 서은빈은 여행에 끼지도 못하고 실루엣인 이시현만 여행에 함께 가게 된다. 예언자는 여행 합류 장소를 알려 달라는 서은빈의 요구에 답했고, 그렇게 여섯 명이 함께 가는 여행이 된다.</p>
+              <p>그 이후의 흐름은 예언자가 본 미래대로였다. 이시현의 본 인격을 휴대폰 알람으로 재운 뒤, 난리통 속에서 서은빈이 조현준을 한 번 죽여 이시현이 사건 현장에 도착할 때까지 시간을 번다. 서은빈은 자신이 범인이라고 착각한 채 실루엣을 살리기 위한 버림패로 이용당한다. 그것이 예언자가 세운 계획의 전부였다.</p>
+            </div>
+          </section>
+
+          <section class="chapter">
+            <div class="chapter-heading">
+              <div class="chapter-code">CHAPTER 03</div>
+              <div>
+                <h2>별장에서 반복된 죽음</h2>
+                <p class="chapter-subtitle">조현준의 몸, 임범석의 정신</p>
+              </div>
+            </div>
+            <div class="chapter-text">
+              <div class="death-log">
+                <article class="death-card">
+                  <div class="death-time">19:30 / 백가은</div>
+                  <p>백가은이 임범석의 계획대로 조현준의 몸에 든 임범석의 정신을 불꽃놀이로 인한 공황에 빠뜨린 뒤 최초로 살해한다.</p>
+                </article>
+                <article class="death-card">
+                  <div class="death-time">20:00 / 백민준</div>
+                  <p>백민준이 복수심으로 조현준의 몸에 든 임범석의 정신의 심장에 칼을 꽂아 살해한다.</p>
+                </article>
+                <article class="death-card">
+                  <div class="death-time">20:20 / 서은빈</div>
+                  <p>심장에 꽂힌 칼을 겨우 빼낸 조현준의 몸에 든 임범석의 정신을 상대로, 서은빈이 머리에 칼을 꽂아 살해한다.</p>
+                </article>
+                <article class="death-card">
+                  <div class="death-time">20:45 / 실루엣</div>
+                  <p>머리에 꽂힌 칼마저 빼내고 겨우 살아난 조현준의 몸에 든 임범석의 정신은 기진맥진한 상태로 잠시 앉아 있는다. 실루엣은 부활한 조현준을 즉시 살해한 뒤, 아드레날린으로 강화된 근력을 이용해 갈비뼈를 뜯어내 부활해도 칼이 심장을 두 조각 내도록 위치시킨다. 이후 수풀 속으로 몸을 숨긴다.</p>
+                </article>
+              </div>
+              <p>부활을 한계까지 한 이후, 임범석의 몸에 든 조현준이 발견한다.</p>
+            </div>
+          </section>
+
+          <section class="chapter">
+            <div class="chapter-heading">
+              <div class="chapter-code">CHAPTER 04</div>
+              <div>
+                <h2>관측에서 벗어난 미래</h2>
+                <p class="chapter-subtitle">쿼츠의 개입</p>
+              </div>
+            </div>
+            <div class="chapter-text">
+              <p>그러나 20시 30분경, 백민준이 쿼츠에 조현준의 죽음을 보고하며 운명은 조금씩 뒤틀린다. 쿼츠의 보고를 받은 셀리온이 움직였고, 이후의 미래는 예언자가 관측하지 못한 방향으로 흘러간다.</p>
+              <p>모든 일이 끝났다고 판단한 예언자는 서은빈의 위성전화로 전화를 걸어 실루엣의 인격을 해제시켜 주었다. 그 덕에 실루엣은 위성전화를 찾아 숨길 수 있었다. 이후 셀리온의 지휘로 쿼츠는 22시에 일행들을 습격하고, 간단한 기억 저장 장치 시술을 통해 기억을 빼내어 읽어 낸다.</p>
+              <p>그 과정에서 조현준과 임범석의 비밀스러운 실험, 그리고 서은빈과 옵시디언의 관계가 드러난다. 쿼츠는 이 판을 그대로 이용해 자신들의 목적을 달성하기로 한다.</p>
+            </div>
+          </section>
+
+          <section class="chapter">
+            <div class="chapter-heading">
+              <div class="chapter-code">CHAPTER 05</div>
+              <div>
+                <h2>쿼츠의 실험</h2>
+                <p class="chapter-subtitle">두 개의 목적</p>
+              </div>
+            </div>
+            <div class="chapter-text">
+              <p>쿼츠의 주 목적은 두 가지다. 첫째, 서은빈 스스로 예언자를 불러 이곳까지 오게 만드는 것. 둘째, 기억을 삭제한 조현준이 임범석과 함께한 실험의 내용이 무엇인지 말하게 하는 것. 쿼츠는 이 두 가지를 위해 작위적인 실험을 계속한다.</p>
+              <p>예언자가 중간에 전화를 건 이유는 위성전화가 실루엣에게 있고, 인격이 풀린 것까지는 확신했기 때문이다. 실루엣 상태에서 판단하는 편이 더 정확할 것이라 생각한 예언자는 고심 끝에 전화 수신을 택한다.</p>
+              <div class="question-box">
+                <strong>최종장에 이르러.</strong>
+                <p>그래서, 당신들은 쿼츠의 실험에 성공을 가져다줬는가. 실패를 안겨줬는가?</p>
+              </div>
+            </div>
+          </section>
+        </article>
+      
+      </section>
+    </main>
+
+    <footer class="footer">불사자의 죽음 · DOLDORI GAMES</footer>
+  </div>
+</body>
+</html>
