@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>불사자의 죽음</title>
-  <meta name="description" content="불사자의 죽음 — 사건의 전말과 주요 정보">
+  <title>사건의 전말 | 연구실, 연쇄 · 불사자의 죽음</title>
+  <meta name="description" content="현재 플레이하고 있는 작품을 확인한 뒤 연구실, 연쇄 또는 불사자의 죽음의 사건의 전말을 열람하세요.">
   <style>
     :root {
       --bg: #171717;
@@ -131,7 +131,7 @@
     }
 
     .home-hero {
-      min-height: 390px;
+      min-height: 260px;
       display: flex;
       align-items: center;
       padding: clamp(34px, 7vw, 72px);
@@ -206,13 +206,16 @@
       letter-spacing: .1em;
     }
 
-    .portal-card h2 {
+    .portal-card .portal-title {
+      display: block;
+      font-weight: 700;
       margin: 20px 0 9px;
       font-size: 27px;
       letter-spacing: -0.06em;
     }
 
-    .portal-card p {
+    .portal-card .portal-description {
+      display: block;
       max-width: 350px;
       margin: 0;
       color: var(--muted);
@@ -620,6 +623,103 @@
       font-size: 16px;
     }
 
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 5px;
+    }
+
+    .portal-card {
+      width: 100%;
+    }
+
+    .secondary-links {
+      margin-top: 18px;
+      text-align: right;
+    }
+
+    .secondary-link {
+      padding: 10px 0;
+      border: 0;
+      color: var(--muted);
+      background: transparent;
+      font-size: 13px;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .secondary-link:hover {
+      color: var(--text);
+    }
+
+    .confirmation-dialog {
+      width: min(480px, calc(100% - 32px));
+      max-height: calc(100dvh - 32px);
+      padding: clamp(25px, 6vw, 38px);
+      border: 1px solid #71808e;
+      color: var(--text);
+      background: var(--panel);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, .55);
+    }
+
+    .confirmation-dialog::backdrop {
+      background: rgba(0, 0, 0, .78);
+    }
+
+    .confirmation-dialog h2 {
+      margin: 0;
+      font-size: clamp(21px, 5vw, 27px);
+      line-height: 1.55;
+      letter-spacing: -.04em;
+      word-break: keep-all;
+    }
+
+    .confirmation-work {
+      display: block;
+      margin: 15px 0;
+      color: var(--accent);
+      font-size: clamp(26px, 6vw, 34px);
+    }
+
+    .confirmation-description {
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
+      word-break: keep-all;
+    }
+
+    .confirmation-warning {
+      margin: 12px 0 0;
+      color: #e3aaaa;
+      font-size: 14px;
+      line-height: 1.75;
+      word-break: keep-all;
+    }
+
+    .confirmation-actions {
+      display: grid;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .confirmation-actions button {
+      min-height: 48px;
+      padding: 12px 15px;
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: var(--panel-2);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .confirmation-actions .confirm-open {
+      border-color: var(--accent);
+      color: #15212c;
+      background: var(--accent);
+    }
+
     .footer {
       padding: 29px 0 40px;
       color: #858585;
@@ -650,7 +750,7 @@
       }
 
       .home-hero {
-        min-height: 355px;
+        min-height: 230px;
       }
 
       .portal-grid,
@@ -721,58 +821,134 @@
 <body>
   <div class="app-shell">
     <header class="site-header">
-
-      <a class="brand-button" href="index.html" aria-label="첫 화면으로 이동">
+      <a class="brand-button" href="index.html" aria-label="작품 선택 화면으로 이동">
         <span class="brand-mark" aria-hidden="true"></span>
         <span class="brand-label">
           <span>QUARTZ HORIZON 1</span>
-          <strong>불사자의 죽음</strong>
+          <strong>사건의 전말</strong>
         </span>
       </a>
       <nav class="site-nav" aria-label="사이트 이동">
-        <a href="index.html" class="is-current">첫 화면</a>
-        <a href="case.html">사건의 전말</a>
-        <a href="info.html">주요 정보</a>
+        <a href="index.html" class="is-current" aria-current="page">작품 선택</a>
       </nav>
-    
     </header>
 
     <main>
-      <section class="view is-active">
-
+      <section aria-labelledby="archive-title">
         <div class="home-hero">
           <div class="home-content">
             <div class="kicker">CASE ARCHIVE</div>
-            <h1 class="hero-title">불사자의 죽음</h1>
-            <p class="hero-copy">불사자의 죽음에서 벌어진 사건의 흐름과 주요 정보를 확인할 수 있습니다.</p>
-            <div class="hero-status">쿼츠 기밀 파일</div>
+            <h1 class="hero-title" id="archive-title">사건의 전말</h1>
+            <p class="hero-copy">현재 플레이하고 있는 작품을 선택해 주세요.</p>
+            <div class="hero-status">플레이를 마친 뒤 열람해 주세요.</div>
           </div>
         </div>
 
         <div class="portal-grid">
-          <a class="portal-card" href="case.html">
-            <span class="portal-index">ARCHIVE 01</span>
+          <button type="button" class="portal-card"
+            data-work="연구실, 연쇄"
+            data-archive-destination="https://mink5228627-star.github.io/chainresult/case.html"
+            data-archive-type="case"
+            aria-label="연구실, 연쇄 사건의 전말 선택">
+            <span class="portal-index">CASE 01</span>
             <span>
-              <h2>사건의 전말</h2>
-              <p>별장에서 벌어진 연속된 죽음의 순서를 확인합니다.</p>
+              <span class="portal-title">연구실, 연쇄</span>
+              <span class="portal-description">이 작품의 사건의 전말을 확인합니다.</span>
             </span>
-            <span class="portal-action">OPEN CASE FILE →</span>
-          </a>
+            <span class="portal-action">사건의 전말 보기 →</span>
+          </button>
 
-          <a class="portal-card" href="info.html">
-            <span class="portal-index">ARCHIVE 02</span>
+          <button type="button" class="portal-card"
+            data-work="불사자의 죽음"
+            data-archive-destination="case.html"
+            data-archive-type="case"
+            aria-label="불사자의 죽음 사건의 전말 선택">
+            <span class="portal-index">CASE 02</span>
             <span>
-              <h2>주요 정보</h2>
-              <p>각 플레이어의 프로필과 게임 진행 시 들어가게 되는 신체 정보를 확인합니다.</p>
+              <span class="portal-title">불사자의 죽음</span>
+              <span class="portal-description">이 작품의 사건의 전말을 확인합니다.</span>
             </span>
-            <span class="portal-action">OPEN PLAYER DATA →</span>
-          </a>
+            <span class="portal-action">사건의 전말 보기 →</span>
+          </button>
         </div>
-      
+
+        <div class="secondary-links">
+          <button type="button" class="secondary-link"
+            data-work="불사자의 죽음"
+            data-archive-destination="info.html"
+            data-archive-type="info">불사자의 죽음 · 주요 정보 보기 →</button>
+        </div>
+
+        <noscript>
+          <p class="hero-copy">작품을 선택하려면 브라우저에서 자바스크립트를 허용해 주세요.</p>
+        </noscript>
       </section>
     </main>
 
+    <dialog class="confirmation-dialog" id="archive-confirmation"
+      aria-labelledby="confirmation-title"
+      aria-describedby="confirmation-description confirmation-warning">
+      <div class="kicker">작품 확인</div>
+      <h2 id="confirmation-title">
+        현재 플레이하고 있는 작품이
+        <strong class="confirmation-work" id="confirmation-work"></strong>
+        맞나요?
+      </h2>
+      <p class="confirmation-description" id="confirmation-description"></p>
+      <p class="confirmation-warning" id="confirmation-warning"></p>
+      <div class="confirmation-actions">
+        <button type="button" id="confirmation-cancel" autofocus>아니요, 다시 선택</button>
+        <button type="button" class="confirm-open" id="confirmation-open">맞아요, 전말 보기</button>
+      </div>
+    </dialog>
+
     <footer class="footer">© Doldori Games. All rights reserved.</footer>
   </div>
+
+  <script>
+    const confirmation = document.getElementById('archive-confirmation');
+    const selectedWork = document.getElementById('confirmation-work');
+    const description = document.getElementById('confirmation-description');
+    const warning = document.getElementById('confirmation-warning');
+    const openButton = document.getElementById('confirmation-open');
+    let pendingDestination = null;
+    let selectedButton = null;
+
+    document.querySelectorAll('[data-archive-destination]').forEach((button) => {
+      button.addEventListener('click', () => {
+        selectedButton = button;
+        pendingDestination = button.dataset.archiveDestination;
+        const isInformation = button.dataset.archiveType === 'info';
+
+        selectedWork.textContent = '《' + button.dataset.work + '》';
+        description.textContent = isInformation
+          ? '확인하면 이 작품의 주요 정보로 이동합니다.'
+          : '확인하면 이 작품의 사건의 전말로 이동합니다.';
+        warning.textContent = isInformation
+          ? '인물의 정체와 핵심 설정이 공개됩니다. 작품명이 맞는지 확인해 주세요.'
+          : '범인과 사건의 진상이 공개됩니다. 작품명이 맞는지 확인해 주세요.';
+        openButton.textContent = isInformation
+          ? '맞아요, 정보 보기'
+          : '맞아요, 전말 보기';
+        confirmation.showModal();
+      });
+    });
+
+    document.getElementById('confirmation-cancel').addEventListener('click', () => {
+      confirmation.close();
+    });
+
+    confirmation.addEventListener('close', () => {
+      pendingDestination = null;
+      selectedButton?.focus();
+    });
+
+    openButton.addEventListener('click', () => {
+      if (!pendingDestination) return;
+      const destination = pendingDestination;
+      confirmation.close();
+      window.location.assign(destination);
+    });
+  </script>
 </body>
 </html>
