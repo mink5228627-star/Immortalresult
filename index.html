@@ -4,913 +4,218 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>사건의 전말 | 연구실, 연쇄 · 불사자의 죽음</title>
-  <meta name="description" content="현재 플레이하고 있는 작품을 확인한 뒤 연구실, 연쇄 또는 불사자의 죽음의 사건의 전말을 열람하세요.">
+  <meta name="description" content="연구실, 연쇄와 불사자의 죽음 — 사건의 전말">
   <style>
     :root {
-      --bg: #171717;
-      --panel: #202020;
-      --panel-2: #262626;
-      --line: #4b4b4b;
-      --text: #f3f3f3;
-      --muted: #b9b9b9;
-      --accent: #9bb8d7;
-      --accent-dark: #263543;
-      --danger: #c98a8a;
+      color-scheme: dark;
+      --background: #171717;
+      --text: #efede8;
+      --muted: #aaa7a2;
+      --line: #484644;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
 
     body {
-      min-width: 320px;
-      min-height: 100vh;
       margin: 0;
       color: var(--text);
-      background: var(--bg);
+      background: var(--background);
       font-family: "Pretendard", "SUIT", "Noto Sans KR", "Malgun Gothic", sans-serif;
-      letter-spacing: -0.02em;
-    }
-
-    button,
-    a {
-      color: inherit;
-      font: inherit;
-      text-decoration: none;
+      line-height: 1.6;
+      word-break: keep-all;
     }
 
     button {
+      color: inherit;
+      font: inherit;
       cursor: pointer;
     }
 
-    .app-shell {
-      width: min(1040px, calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .site-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      min-height: 76px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .brand-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 11px;
-      padding: 0;
-      border: 0;
-      color: var(--text);
-      background: transparent;
-      text-align: left;
-    }
-
-    .brand-mark {
-      width: 11px;
-      height: 31px;
-      background: var(--accent);
-    }
-
-    .brand-label {
-      display: grid;
-      gap: 3px;
-    }
-
-    .brand-label span {
-      color: var(--accent);
-      font: 700 11px/1 ui-monospace, "SFMono-Regular", Consolas, monospace;
-      letter-spacing: .12em;
-    }
-
-    .brand-label strong {
-      font-size: 15px;
-      letter-spacing: -0.04em;
-    }
-
-    .site-nav {
-      display: flex;
-      align-items: center;
-      gap: 17px;
-    }
-
-    .site-nav button,
-    .site-nav a {
-      padding: 5px 0;
-      border: 0;
-      border-bottom: 1px solid transparent;
-      color: var(--muted);
-      background: transparent;
-      font-size: 13px;
-    }
-
-    .site-nav button:hover,
-    .site-nav button.is-current,
-    .site-nav a:hover,
-    .site-nav a.is-current {
-      border-color: var(--accent);
-      color: var(--text);
-    }
-
-    main {
-      padding: 46px 0 62px;
-    }
-
-
-    .kicker {
-      margin-bottom: 15px;
-      color: var(--accent);
-      font: 700 11px/1.4 ui-monospace, "SFMono-Regular", Consolas, monospace;
-      letter-spacing: .1em;
-    }
-
-    .home-hero {
-      min-height: 260px;
-      display: flex;
-      align-items: center;
-      padding: clamp(34px, 7vw, 72px);
-      border: 1px solid var(--line);
-      background: var(--panel);
-    }
-
-    .home-content {
-      max-width: 620px;
-    }
-
-    .hero-title {
-      margin: 0;
-      font-size: clamp(44px, 8vw, 76px);
-      line-height: 1.03;
-      letter-spacing: -0.08em;
-    }
-
-    .hero-copy {
-      max-width: 510px;
-      margin: 26px 0 0;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.85;
-      word-break: keep-all;
-    }
-
-    .hero-status {
-      display: inline-flex;
-      align-items: center;
-      margin-top: 25px;
-      padding: 8px 11px;
-      border: 1px solid #617487;
-      color: #d5e4f3;
-      background: var(--accent-dark);
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .portal-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .portal-card {
-      min-height: 202px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: space-between;
-      padding: 26px;
-      border: 1px solid var(--line);
-      color: var(--text);
-      background: var(--panel);
-      text-align: left;
-    }
-
-    .portal-card:hover {
-      border-color: #71808e;
-      background: var(--panel-2);
-    }
-
-    .portal-card {
-      text-decoration: none;
-    }
-
-    .portal-index {
-      color: var(--accent);
-      font: 700 11px/1 ui-monospace, "SFMono-Regular", Consolas, monospace;
-      letter-spacing: .1em;
-    }
-
-    .portal-card .portal-title {
-      display: block;
-      font-weight: 700;
-      margin: 20px 0 9px;
-      font-size: 27px;
-      letter-spacing: -0.06em;
-    }
-
-    .portal-card .portal-description {
-      display: block;
-      max-width: 350px;
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.75;
-      word-break: keep-all;
-    }
-
-    .portal-action {
-      margin-top: 22px;
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .page-top {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: end;
-      gap: 22px;
-      margin-bottom: 31px;
-    }
-
-    .page-title {
-      margin: 0;
-      font-size: clamp(37px, 6vw, 57px);
-      line-height: 1.05;
-      letter-spacing: -0.08em;
-    }
-
-    .page-description {
-      max-width: 650px;
-      margin: 16px 0 0;
-      color: var(--muted);
-      line-height: 1.8;
-      word-break: keep-all;
-    }
-
-    .page-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 7px;
-    }
-
-    .page-links button,
-    .page-links a {
-      padding: 9px 11px;
-      border: 1px solid var(--line);
-      color: var(--muted);
-      background: var(--panel);
-      font-size: 13px;
-    }
-
-    .page-links button:hover,
-    .page-links a:hover {
-      border-color: #71808e;
-      color: var(--text);
-    }
-
-    .case-record {
-      border: 1px solid var(--line);
-      background: var(--panel);
-    }
-
-    .case-summary {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 22px;
-      padding: 27px;
-      border-bottom: 1px solid var(--line);
-      background: #242424;
-    }
-
-    .case-summary p {
-      max-width: 710px;
-      margin: 0;
-      color: #dedede;
-      font-size: 16px;
-      line-height: 1.8;
-      word-break: keep-all;
-    }
-
-    .case-number {
-      align-self: start;
-      color: var(--accent);
-      font-size: 13px;
-      font-weight: 700;
-      text-align: right;
-      white-space: nowrap;
-    }
-
-    .chapter {
-      padding: clamp(27px, 5vw, 52px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .chapter:last-child {
-      border-bottom: 0;
-    }
-
-    .chapter-heading {
-      display: grid;
-      grid-template-columns: 90px 1fr;
-      align-items: start;
-      gap: 20px;
-      margin-bottom: 25px;
-    }
-
-    .chapter-code {
-      padding-top: 7px;
-      color: var(--accent);
-      font: 700 11px/1.3 ui-monospace, "SFMono-Regular", Consolas, monospace;
-      letter-spacing: .1em;
-    }
-
-    .chapter h2 {
-      margin: 0;
-      font-size: clamp(27px, 4vw, 39px);
-      line-height: 1.05;
-      letter-spacing: -0.07em;
-    }
-
-    .chapter-subtitle {
-      margin: 8px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .chapter-text {
-      max-width: 810px;
-      margin-left: 110px;
-    }
-
-    .chapter-text p {
-      margin: 0 0 17px;
-      color: #dddddd;
-      font-size: 16px;
-      line-height: 1.95;
-      word-break: keep-all;
-    }
-
-    .chapter-text p:last-child {
-      margin-bottom: 0;
-    }
-
-    .death-log {
-      display: grid;
-      gap: 9px;
-      margin: 23px 0;
-    }
-
-    .death-card {
-      display: grid;
-      grid-template-columns: 102px 1fr;
-      gap: 18px;
-      padding: 15px 16px;
-      border: 1px solid #5f4a4a;
-      background: #292222;
-    }
-
-    .death-time {
-      color: #e3a5a5;
-      font: 700 12px/1.5 ui-monospace, "SFMono-Regular", Consolas, monospace;
-      letter-spacing: .02em;
-    }
-
-    .death-card p {
-      margin: 0;
-      color: #dddddd;
-      font-size: 14px;
-      line-height: 1.75;
-      word-break: keep-all;
-    }
-
-    .question-box {
-      margin-top: 25px;
-      padding: 24px;
-      border: 1px solid #617487;
-      background: #202830;
-    }
-
-    .question-box strong {
-      display: block;
-      color: var(--accent);
-      font: 700 11px/1.35 ui-monospace, "SFMono-Regular", Consolas, monospace;
-      letter-spacing: .11em;
-    }
-
-    .question-box p {
-      margin: 11px 0 0;
-      color: var(--text);
-      font-size: clamp(17px, 2.3vw, 22px);
-      font-weight: 700;
-      line-height: 1.55;
-      letter-spacing: -0.04em;
-      word-break: keep-all;
-    }
-
-    .info-banner {
-      overflow: hidden;
-      border: 1px solid var(--line);
-      background: var(--panel);
-    }
-
-    .info-banner-copy {
-      padding: clamp(30px, 5vw, 53px);
-    }
-
-    .info-banner-copy h2 {
-      margin: 0;
-      font-size: clamp(29px, 4vw, 44px);
-      line-height: 1.1;
-      letter-spacing: -0.07em;
-    }
-
-    .info-banner-copy p {
-      max-width: 520px;
-      margin: 19px 0 0;
-      color: var(--muted);
-      line-height: 1.85;
-      word-break: keep-all;
-    }
-
-    .info-banner-stat {
-      display: grid;
-      place-content: center;
-      gap: 9px;
-      min-height: 215px;
-      padding: 30px;
-      border-left: 1px solid var(--line);
-      background: #242424;
-      text-align: center;
-    }
-
-    .info-banner-stat span {
-      color: var(--accent);
-      font: 700 11px/1 ui-monospace, "SFMono-Regular", Consolas, monospace;
-      letter-spacing: .11em;
-    }
-
-    .info-banner-stat strong {
-      color: var(--text);
-      font-size: 58px;
-      line-height: 1;
-      letter-spacing: -0.09em;
-    }
-
-    .info-banner-stat small {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .profile-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .profile-card {
-      min-height: 229px;
-      display: flex;
-      flex-direction: column;
-      padding: 25px;
-      border: 1px solid var(--line);
-      background: var(--panel);
-    }
-
-    .profile-card:hover {
-      border-color: #71808e;
-      background: var(--panel-2);
-    }
-
-    .profile-order {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      color: var(--accent);
-      font: 700 11px/1 ui-monospace, "SFMono-Regular", Consolas, monospace;
-      letter-spacing: .1em;
-    }
-
-    .profile-card h3 {
-      margin: 23px 0 8px;
-      font-size: 30px;
-      line-height: 1;
-      letter-spacing: -0.07em;
-    }
-
-    .profile-meta {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.65;
-    }
-
-    .profile-body {
-      margin-top: auto;
-      padding-top: 20px;
-      color: #dce9f5;
-      font-weight: 700;
-      line-height: 1.55;
-      word-break: keep-all;
-    }
-
-    .profile-extra {
-      display: inline-block;
-      margin-top: 5px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 500;
-    }
-
-    .info-note {
-      margin-top: 18px;
-      padding: 21px 23px;
-      border-left: 3px solid var(--accent);
-      color: var(--muted);
-      background: #222222;
-      font-size: 14px;
-      line-height: 1.8;
-      word-break: keep-all;
-    }
-
-    .result-section {
-      margin-top: 18px;
-      border: 1px solid var(--line);
-      background: var(--panel);
-    }
-
-    .result-section-header {
-      padding: 25px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .result-section-header h2 {
-      margin: 0;
-      font-size: 27px;
-      letter-spacing: -0.06em;
-    }
-
-    .result-section-header p {
-      margin: 10px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.75;
-      word-break: keep-all;
-    }
-
-    .result-table-wrap {
-      overflow-x: auto;
-    }
-
-    .result-table {
-      width: 100%;
-      min-width: 620px;
-      border-collapse: collapse;
-      text-align: left;
-    }
-
-    .result-table th,
-    .result-table td {
-      padding: 16px 18px;
-      border-bottom: 1px solid var(--line);
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .result-table thead th {
-      color: var(--accent);
-      background: #242424;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .result-table tbody th {
-      width: 45%;
-      color: #dddddd;
-      font-weight: 500;
-    }
-
-    .result-table td {
-      width: 27.5%;
-      color: var(--text);
-      font-weight: 700;
-    }
-
-    .result-table tbody tr:last-child th,
-    .result-table tbody tr:last-child td {
-      border-bottom: 0;
-    }
-
-    .result-table td span {
-      display: block;
-      margin-bottom: 5px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 500;
-    }
-
-    .result-table td strong {
-      color: var(--accent);
-      font-size: 16px;
-    }
-
-
-    a:focus-visible,
     button:focus-visible {
-      outline: 3px solid var(--accent);
+      outline: 2px solid var(--text);
       outline-offset: 5px;
     }
 
-    .portal-card {
-      width: 100%;
+    .page {
+      width: min(640px, calc(100% - 48px));
+      margin: clamp(64px, 12vh, 120px) auto 48px;
     }
 
-    .secondary-links {
-      margin-top: 18px;
-      text-align: right;
-    }
-
-    .secondary-link {
-      padding: 10px 0;
-      border: 0;
+    .brand {
+      margin: 0 0 36px;
       color: var(--muted);
-      background: transparent;
       font-size: 13px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(32px, 5vw, 44px);
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: -.045em;
+    }
+
+    .intro {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .work-list {
+      margin-top: 44px;
+      border-top: 1px solid var(--line);
+    }
+
+    .work-choice {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      width: 100%;
+      padding: 28px 0;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      background: transparent;
+      text-align: left;
+    }
+
+    .work-title {
+      font-size: clamp(20px, 4.8vw, 26px);
+      font-weight: 500;
+      letter-spacing: -.035em;
+    }
+
+    .work-action {
+      flex-shrink: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .work-choice:hover .work-action {
+      color: var(--text);
       text-decoration: underline;
       text-underline-offset: 4px;
     }
 
-    .secondary-link:hover {
-      color: var(--text);
+    .notice {
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 13px;
     }
 
-    .confirmation-dialog {
-      width: min(480px, calc(100% - 32px));
+    .confirmation {
+      width: min(420px, calc(100% - 32px));
       max-height: calc(100dvh - 32px);
-      padding: clamp(25px, 6vw, 38px);
-      border: 1px solid #71808e;
+      padding: 32px;
+      border: 1px solid #62605c;
       color: var(--text);
-      background: var(--panel);
-      box-shadow: 0 24px 80px rgba(0, 0, 0, .55);
+      background: #202020;
     }
 
-    .confirmation-dialog::backdrop {
-      background: rgba(0, 0, 0, .78);
+    .confirmation::backdrop {
+      background: rgba(0, 0, 0, .75);
     }
 
-    .confirmation-dialog h2 {
+    .confirmation h2 {
       margin: 0;
-      font-size: clamp(21px, 5vw, 27px);
-      line-height: 1.55;
-      letter-spacing: -.04em;
-      word-break: keep-all;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.65;
+      letter-spacing: -.025em;
     }
 
     .confirmation-work {
       display: block;
-      margin: 15px 0;
-      color: var(--accent);
-      font-size: clamp(26px, 6vw, 34px);
-    }
-
-    .confirmation-description {
-      margin: 20px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.75;
-      word-break: keep-all;
+      margin: 10px 0;
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -.04em;
     }
 
     .confirmation-warning {
-      margin: 12px 0 0;
-      color: #e3aaaa;
-      font-size: 14px;
-      line-height: 1.75;
-      word-break: keep-all;
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 13px;
     }
 
     .confirmation-actions {
       display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 10px;
       margin-top: 28px;
     }
 
     .confirmation-actions button {
-      min-height: 48px;
-      padding: 12px 15px;
+      min-height: 46px;
+      padding: 10px;
       border: 1px solid var(--line);
-      color: var(--text);
-      background: var(--panel-2);
+      background: transparent;
       font-size: 14px;
-      font-weight: 700;
     }
 
     .confirmation-actions .confirm-open {
-      border-color: var(--accent);
-      color: #15212c;
-      background: var(--accent);
-    }
-
-    .footer {
-      padding: 29px 0 40px;
-      color: #858585;
-      font-size: 12px;
-      text-align: center;
-    }
-
-    @media (max-width: 760px) {
-      .app-shell {
-        width: min(100% - 28px, 1040px);
-      }
-
-      .site-header {
-        min-height: 72px;
-      }
-
-      .site-nav {
-        gap: 11px;
-      }
-
-      .site-nav button,
-    .site-nav a {
-        font-size: 12px;
-      }
-
-      main {
-        padding-top: 31px;
-      }
-
-      .home-hero {
-        min-height: 230px;
-      }
-
-      .portal-grid,
-      .info-banner,
-      .profile-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .info-banner-stat {
-        min-height: 150px;
-        border-top: 1px solid var(--line);
-        border-left: 0;
-      }
-
-      .page-top,
-      .case-summary {
-        grid-template-columns: 1fr;
-      }
-
-      .page-links {
-        justify-content: flex-start;
-      }
-
-      .case-number {
-        text-align: left;
-      }
-
-      .chapter-heading {
-        grid-template-columns: 1fr;
-        gap: 8px;
-      }
-
-      .chapter-text {
-        margin-left: 0;
-      }
-
-      .death-card {
-        grid-template-columns: 1fr;
-        gap: 7px;
-      }
+      border-color: var(--text);
+      color: #202020;
+      background: var(--text);
     }
 
     @media (max-width: 480px) {
-      .brand-label strong {
-        font-size: 13px;
-      }
-
-      .brand-label span {
-        font-size: 9px;
-      }
-
-      .site-nav {
-        gap: 7px;
-      }
-
-      .site-nav button,
-    .site-nav a {
-        font-size: 11px;
-      }
-
-      .portal-card,
-      .profile-card {
-        padding: 23px;
-      }
+      .brand { margin-bottom: 28px; }
+      .work-list { margin-top: 36px; }
+      .work-choice { padding: 24px 0; }
+      .confirmation { padding: 26px 24px; }
+      .confirmation-work { font-size: 24px; }
     }
-</style>
+  </style>
 </head>
 <body>
-  <div class="app-shell">
-    <header class="site-header">
-      <a class="brand-button" href="index.html" aria-label="작품 선택 화면으로 이동">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-label">
-          <span>QUARTZ HORIZON 1</span>
-          <strong>사건의 전말</strong>
-        </span>
-      </a>
-      <nav class="site-nav" aria-label="사이트 이동">
-        <a href="index.html" class="is-current" aria-current="page">작품 선택</a>
-      </nav>
+  <main class="page">
+    <header>
+      <p class="brand">도돌이게임즈</p>
+      <h1>사건의 전말</h1>
+      <p class="intro">플레이한 작품을 선택해 주세요.</p>
     </header>
 
-    <main>
-      <section aria-labelledby="archive-title">
-        <div class="home-hero">
-          <div class="home-content">
-            <div class="kicker">CASE ARCHIVE</div>
-            <h1 class="hero-title" id="archive-title">사건의 전말</h1>
-            <p class="hero-copy">현재 플레이하고 있는 작품을 선택해 주세요.</p>
-            <div class="hero-status">플레이를 마친 뒤 열람해 주세요.</div>
-          </div>
-        </div>
+    <div class="work-list" aria-label="작품 선택">
+      <button type="button" class="work-choice"
+        data-work="연구실, 연쇄"
+        data-archive-destination="https://mink5228627-star.github.io/chainresult/case.html"
+        aria-label="연구실, 연쇄 전말 보기">
+        <span class="work-title">연구실, 연쇄</span>
+        <span class="work-action">전말 보기</span>
+      </button>
+      <button type="button" class="work-choice"
+        data-work="불사자의 죽음"
+        data-archive-destination="case.html"
+        aria-label="불사자의 죽음 전말 보기">
+        <span class="work-title">불사자의 죽음</span>
+        <span class="work-action">전말 보기</span>
+      </button>
+    </div>
 
-        <div class="portal-grid">
-          <button type="button" class="portal-card"
-            data-work="연구실, 연쇄"
-            data-archive-destination="https://mink5228627-star.github.io/chainresult/case.html"
-            data-archive-type="case"
-            aria-label="연구실, 연쇄 사건의 전말 선택">
-            <span class="portal-index">CASE 01</span>
-            <span>
-              <span class="portal-title">연구실, 연쇄</span>
-              <span class="portal-description">이 작품의 사건의 전말을 확인합니다.</span>
-            </span>
-            <span class="portal-action">사건의 전말 보기 →</span>
-          </button>
+    <p class="notice">게임을 마친 뒤 읽어 주세요.</p>
+    <noscript>
+      <p class="notice">작품 선택 버튼을 사용하려면 자바스크립트를 허용해 주세요.</p>
+    </noscript>
+  </main>
 
-          <button type="button" class="portal-card"
-            data-work="불사자의 죽음"
-            data-archive-destination="case.html"
-            data-archive-type="case"
-            aria-label="불사자의 죽음 사건의 전말 선택">
-            <span class="portal-index">CASE 02</span>
-            <span>
-              <span class="portal-title">불사자의 죽음</span>
-              <span class="portal-description">이 작품의 사건의 전말을 확인합니다.</span>
-            </span>
-            <span class="portal-action">사건의 전말 보기 →</span>
-          </button>
-        </div>
-
-        <div class="secondary-links">
-          <button type="button" class="secondary-link"
-            data-work="불사자의 죽음"
-            data-archive-destination="info.html"
-            data-archive-type="info">불사자의 죽음 · 주요 정보 보기 →</button>
-        </div>
-
-        <noscript>
-          <p class="hero-copy">작품을 선택하려면 브라우저에서 자바스크립트를 허용해 주세요.</p>
-        </noscript>
-      </section>
-    </main>
-
-    <dialog class="confirmation-dialog" id="archive-confirmation"
-      aria-labelledby="confirmation-title"
-      aria-describedby="confirmation-description confirmation-warning">
-      <div class="kicker">작품 확인</div>
-      <h2 id="confirmation-title">
-        현재 플레이하고 있는 작품이
-        <strong class="confirmation-work" id="confirmation-work"></strong>
-        맞나요?
-      </h2>
-      <p class="confirmation-description" id="confirmation-description"></p>
-      <p class="confirmation-warning" id="confirmation-warning"></p>
-      <div class="confirmation-actions">
-        <button type="button" id="confirmation-cancel" autofocus>아니요, 다시 선택</button>
-        <button type="button" class="confirm-open" id="confirmation-open">맞아요, 전말 보기</button>
-      </div>
-    </dialog>
-
-    <footer class="footer">© Doldori Games. All rights reserved.</footer>
-  </div>
+  <dialog class="confirmation" id="archive-confirmation"
+    aria-labelledby="confirmation-title" aria-describedby="confirmation-warning">
+    <h2 id="confirmation-title">
+      현재 플레이하고 있는 작품이
+      <strong class="confirmation-work" id="confirmation-work"></strong>
+      맞나요?
+    </h2>
+    <p class="confirmation-warning" id="confirmation-warning">사건의 결말과 범인이 공개됩니다.</p>
+    <div class="confirmation-actions">
+      <button type="button" id="confirmation-cancel" autofocus>다시 선택</button>
+      <button type="button" class="confirm-open" id="confirmation-open">전말 보기</button>
+    </div>
+  </dialog>
 
   <script>
     const confirmation = document.getElementById('archive-confirmation');
     const selectedWork = document.getElementById('confirmation-work');
-    const description = document.getElementById('confirmation-description');
-    const warning = document.getElementById('confirmation-warning');
-    const openButton = document.getElementById('confirmation-open');
     let pendingDestination = null;
     let selectedButton = null;
 
@@ -918,18 +223,7 @@
       button.addEventListener('click', () => {
         selectedButton = button;
         pendingDestination = button.dataset.archiveDestination;
-        const isInformation = button.dataset.archiveType === 'info';
-
         selectedWork.textContent = '《' + button.dataset.work + '》';
-        description.textContent = isInformation
-          ? '확인하면 이 작품의 주요 정보로 이동합니다.'
-          : '확인하면 이 작품의 사건의 전말로 이동합니다.';
-        warning.textContent = isInformation
-          ? '인물의 정체와 핵심 설정이 공개됩니다. 작품명이 맞는지 확인해 주세요.'
-          : '범인과 사건의 진상이 공개됩니다. 작품명이 맞는지 확인해 주세요.';
-        openButton.textContent = isInformation
-          ? '맞아요, 정보 보기'
-          : '맞아요, 전말 보기';
         confirmation.showModal();
       });
     });
@@ -943,7 +237,7 @@
       selectedButton?.focus();
     });
 
-    openButton.addEventListener('click', () => {
+    document.getElementById('confirmation-open').addEventListener('click', () => {
       if (!pendingDestination) return;
       const destination = pendingDestination;
       confirmation.close();
